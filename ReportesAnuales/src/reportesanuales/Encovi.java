@@ -42,8 +42,12 @@ public class Encovi extends Documento{
     }
     public void generar(){
         
-        
-        
+        /*for(int i =1;i<10;i++){
+            generarDescripcion("1_0"+i);            
+        }
+        for(int i = 10;i<16;i++){
+            generarDescripcion("1_"+i);
+        }*/
         for(int i =1;i<10;i++){
             //generarDescripcion("1_0"+i);
             generarDescripcion("2_0"+i);
@@ -52,8 +56,8 @@ public class Encovi extends Documento{
         for(int i = 10;i<12;i++){
             generarDescripcion("2_"+i);
         }
-        /*for(int i = 10;i<16;i++){
-            generarDescripcion("1_"+i);
+        /*for(int i =1;i<10;i++){
+            generarDescripcion("3_0"+i);
         }
         for(int i = 10;i<31;i++){
             generarDescripcion("3_"+i);
@@ -125,7 +129,8 @@ public class Encovi extends Documento{
     protected void escribirLinea(String linea, String csv) {
         FileWriter escritora;
         try {
-            escritora = new FileWriter(rutaTex+"/" + csv + ".tex",true);
+            escritora = new FileWriter(rutaTex+"/encovi.tex",true);
+            System.out.println(rutaTex+"/encovi.tex");
             BufferedWriter buffer = new BufferedWriter(escritora);
             buffer.write(linea);
             buffer.close();
