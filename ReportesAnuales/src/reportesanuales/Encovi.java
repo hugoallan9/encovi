@@ -48,6 +48,8 @@ public class Encovi extends Documento{
         for(int i = 10;i<16;i++){
             generarDescripcion("1_"+i);
         }*/
+        
+        /*
         for(int i =1;i<10;i++){
             //generarDescripcion("1_0"+i);
             generarDescripcion("2_0"+i);
@@ -56,12 +58,14 @@ public class Encovi extends Documento{
         for(int i = 10;i<12;i++){
             generarDescripcion("2_"+i);
         }
-        /*for(int i =1;i<10;i++){
+        */
+        
+        for(int i =1;i<10;i++){
             generarDescripcion("3_0"+i);
         }
         for(int i = 10;i<31;i++){
             generarDescripcion("3_"+i);
-        }*/
+        }
     }
     
            
@@ -75,12 +79,12 @@ public class Encovi extends Documento{
         String tituloGrafica="";
         String subtituloGrafica="";
         boolean mapa=false;
-         
+        System.out.println("EL CSV ES " + csv);
         try {
             br = new BufferedReader(new FileReader(f.getAbsolutePath()));
             int x=1;
         while ((line = br.readLine()) != null) {
-            
+            //System.out.println(line);
             switch(x){
                 case 1:
                     tituloSeccion =line;
@@ -95,6 +99,7 @@ public class Encovi extends Documento{
                     descripcionSeccion = line;
                     break;
                 case 5:
+                    System.out.println(line);
                     if (line.equalsIgnoreCase("m"))
                         mapa = true;
                     break;
@@ -103,11 +108,12 @@ public class Encovi extends Documento{
             }
             x++;
             }
-        if (mapa)
+        if (mapa){
             escribirLinea(cajotaMapa(csv, tituloSeccion, descripcionSeccion, tituloGrafica, subtituloGrafica,
                     "\\includegraphics[width=52\\cuadri]{graficas/"+csv+".pdf}",
                     "Instituto Nacional de Estadística",rutaTex), csv);
-        else
+            System.out.println("ENTRE AL MAPA");
+        }else
             escribirLinea(seccion(csv, tituloSeccion, descripcionSeccion, tituloGrafica, subtituloGrafica,
                     "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{graficas/"+csv+".tex}  \\end{tikzpicture}",
                     "Instituto Nacional de Estadística",rutaTex), csv);
