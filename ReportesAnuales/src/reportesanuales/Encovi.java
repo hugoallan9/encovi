@@ -42,12 +42,12 @@ public class Encovi extends Documento{
     }
     public void generar(){
         
-        /*for(int i =1;i<10;i++){
+        for(int i =1;i<10;i++){
             generarDescripcion("1_0"+i);            
         }
         for(int i = 10;i<16;i++){
             generarDescripcion("1_"+i);
-        }*/
+        }
         
         /*
         for(int i =1;i<10;i++){
@@ -59,13 +59,14 @@ public class Encovi extends Documento{
             generarDescripcion("2_"+i);
         }
         */
-        
+        /*
         for(int i =1;i<10;i++){
             generarDescripcion("3_0"+i);
         }
         for(int i = 10;i<31;i++){
             generarDescripcion("3_"+i);
         }
+*/
     }
     
            
